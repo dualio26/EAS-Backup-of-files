@@ -229,38 +229,3 @@
     </footer>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      polling: null,
-    }
-  },
-  methods: {
-    pollData() {
-      this.polling = setInterval(() => {
-        var height = document.querySelector('#C1').offsetHeight
-        console.log(height + ' column 1 height')
-        var x = height + 'px'
-        document.getElementById('C2').style.height = x
-        const c2h = document.querySelector('#card2').offsetHeight
-        const c4h = document.querySelector('#card4')
-        var style = getComputedStyle(c4h)
-
-        var mb = parseInt(style.marginBottom)
-        console.log(c2h + ' card 2 height')
-        var y = height - c2h - mb * 2
-        console.log(y)
-        document.getElementById('card4').style.height = y + 'px'
-      }, 1000)
-    },
-  },
-  beforeDestroy() {
-    clearInterval(this.polling)
-  },
-  created() {
-    this.pollData()
-  },
-}
-</script>
