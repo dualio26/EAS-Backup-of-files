@@ -10,14 +10,14 @@
       <div class="SubTitle">
         <p class="title">Think Global Act Local</p>
         <p class="buttons">
-          <a href="carbonfootprint.html"
+          <NuxtLink to="carbonfootprint"
             ><button style="background-color: #bcd8ee; color: #4a4a4a">
               <h3>Carbon Footprint</h3>
-            </button></a
-          ><a href="carboncredits.html"
+            </button></NuxtLink
+          ><NuxtLink to="carboncredits"
             ><button style="background-color: #86c886; color: #f5f3ee">
               <h3>Carbon Credits</h3>
-            </button></a
+            </button></NuxtLink
           >
         </p>
         <p class="heading2">
@@ -29,6 +29,9 @@
     </div>
 
     <div class="CaseStudy1">
+      <div class="Cap1">
+        <p>Filler Content</p>
+      </div>
       <div class="Capsule1">
         <div class="content">
           <div>
@@ -85,25 +88,39 @@
     </div>
 
     <div class="ClientList">
-      <h1>Our Clients</h1>
+      <h1 style="margin-bottom: 5%">Our Clients</h1>
       <div class="grid-container">
-        <div class="grid-item"><img src="../images/nz.png" alt="" /></div>
-        <div class="grid-item"><img src="../images/WAO-02.svg" alt="" /></div>
+        <div class="grid-item">
+          <img src="../images/nz.png" alt="" style="width: 100%" />
+        </div>
+        <div class="grid-item">
+          <img src="../images/WAO-02.svg" alt="" style="width: 50%" />
+        </div>
         <div class="grid-item">
           <img src="../images/201801_gfoi_logo.png" alt="" />
         </div>
-        <div class="grid-item"><img src="../images/index.png" alt="" /></div>
         <div class="grid-item">
-          <img src="../images/ipcc_altlogo_short_rgb.png" alt="" />
+          <img src="../images/index.png" alt="" style="width: 40%" />
+        </div>
+        <div class="grid-item">
+          <img
+            src="../images/ipcc_altlogo_short_rgb.png"
+            alt=""
+            style="width: 60%"
+          />
         </div>
         <div class="grid-item">
           <img src="../images/worldbankLogo.png" alt="" />
         </div>
         <div class="grid-item">
-          <img src="../images/wai-wanaka-logo.png" alt="" />
+          <img src="../images/wai-wanaka-logo.png" alt="" style="width: 60%" />
         </div>
         <div class="grid-item">
-          <img src="../images/fao_logo_3lines_en1.png" alt="" />
+          <img
+            src="../images/fao_logo_3lines_en1.png"
+            alt=""
+            style="width: 100%"
+          />
         </div>
       </div>
     </div>
@@ -176,9 +193,7 @@
     </client-only>
 
     <!--Div for the insight carousel-->
-    <div class="Insights">
-      <CardCarousel />
-    </div>
+    <div class="Insights"></div>
 
     <!--Div fo the Who we are carousel-->
     <div class="WWA"></div>
@@ -187,18 +202,43 @@
       <h1>Who we are</h1>
     </div>
 
+    <div class="GIT">
+      <h2 class="CTitles">Get in touch to see how we can help you</h2>
+      <form action="mailto:eamongreen59@gmail.com">
+        <input id="fname" type="text" name="fname" placeholder="Name" />
+        <input
+          id="lname"
+          type="text"
+          name="email"
+          placeholder="Email"
+        /><br /><br />
+        <select id="" name="" placeholder="Subject">
+          <option value="" disabled selected>Subject</option>
+          <option value="TechProb">Technical Issue</option>
+        </select>
+        <input
+          id="fname"
+          type="text"
+          name="phone"
+          placeholder="Phone"
+        /><br /><br />
+        <textarea
+          id="w3review"
+          name="w3review"
+          rows="4"
+          cols="50"
+          placeholder="Message"
+          style="color: #f5f3ee"
+        >
+        </textarea>
+        <br /><br />
+        <input type="submit" value="Submit" style="border-style: none" />
+      </form>
+    </div>
+
     <footer>
       <a href="#Top">
-        <i
-          class="fas fa-home fa-2x"
-          style="
-            color: #86c886;
-            float: right;
-            padding-top: 1.25%;
-            padding-right: 2%;
-            top: 0;
-          "
-        ></i>
+        <i class="fas fa-home fa-2x"></i>
       </a>
       <ul class="flist">
         <li>
@@ -219,7 +259,7 @@
           >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: info@enviroaccounts.com
         </li>
         <li>
-          <a href="tel:0211234123"><i class="fas fa-phone fa-lg"></i></a
+          <a href="tel:0211234123"><i class="fas fa-phone fa-sm"></i></a
           >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 021 1234 123
         </li>
       </ul>
@@ -229,3 +269,25 @@
     </footer>
   </div>
 </template>
+
+<script>
+export default {
+  mounted: () => {
+    setInterval(function () {
+      const height = document.querySelector('#C1').offsetHeight
+      // window.console.log(height + ' column 1 height')
+      const x = height + 'px'
+      document.getElementById('C2').style.height = x
+      const c2h = document.querySelector('#card2').offsetHeight
+      const c4h = document.querySelector('#card4')
+      const style = getComputedStyle(c4h)
+
+      const mb = parseInt(style.marginBottom)
+      // window.console.log(c2h + ' card 2 height')
+      const y = height - c2h - mb * 2
+      // window.console.log(y)
+      document.getElementById('card4').style.height = y + 'px'
+    }, 250)
+  },
+}
+</script>

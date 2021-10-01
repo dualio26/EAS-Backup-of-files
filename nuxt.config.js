@@ -18,7 +18,12 @@ export default {
         type: 'text/css',
         href: 'https://pro.fontawesome.com/releases/v5.10.0/css/all.css',
       },
-      { src: '~/JS/main.js', mode: 'client' },
+      {
+        src: '~/JS/main.js',
+        mode: 'client',
+        async: true,
+        crossorigin: 'anonymous',
+      },
     ],
   },
 

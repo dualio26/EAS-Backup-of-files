@@ -17,9 +17,9 @@
           >Packages<i class="fas fa-chevron-down"></i
         ></a>
         <ul id="PackageChild">
-          <li><a href="carbonfootprint.html">Carbon Footprint</a></li>
+          <li><NuxtLink to="carbonfootprint">Carbon Footprint</NuxtLink></li>
           <li style="margin-top: 10%">
-            <a href="carboncredits.html">Carbon Credits</a>
+            <NuxtLink to="carboncredits">Carbon Credits</NuxtLink>
           </li>
         </ul>
       </li>
